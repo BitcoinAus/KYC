@@ -1,10 +1,10 @@
 # KYC
 
 ## Abstract
-Using uPort and ERC780 contracts to make portable KYC attestations.  Users will be able to verify once, use many across financial services.  This demo is on the Rinkeby network.
+Using uPort or other wallets and ERC780 contracts to make portable KYC attestations.  Users will be able to verify their idenity once, use many across financial services.  This demo is on the Rinkeby network.
 
-## Goals
-1. Create a token
+## Process
+1. New users visit a site such as https://id.blockchainaustralia.org
 2. Deploy to Rinkeby [4]
 3. Create a Nodejs POC
 4. Create a .Net Core POC
@@ -12,10 +12,10 @@ Using uPort and ERC780 contracts to make portable KYC attestations.  Users will 
 ## Claim types
 Based on the 100 Point ID check Australia.  
 
-| Point Value | Class | Document Type | Key |
----
-| 70 | Primary | Birth Certificate | BIRTHCERTIFICATE | 0x42495254484345525449464943415445
-| 40 | Secondary | Driver’s Licence | DRIVERSLICENCE | 0x445249564552534c4943454e4345
+| Key | Class | Document Type | Point Value |
+| --- | --- | --- | --- |
+| BIRTHCERTIFICATE | Primary | Birth Certificate | 70 | 0x42495254484345525449464943415445
+| DRIVERSLICENCE | Secondary | Driver’s Licence | 40 | 0x445249564552534c4943454e4345
 
 Classes represented in the smart contract as an enum
 ```
@@ -33,12 +33,25 @@ enum Class {
 
 Primary and secondary documents are represented as JSON in the following formats.  The hash of the document is then added to the ERC780 register.
 
+``
+{
+	'BIRTHCERTIFICATE': '0x00'
+}
+``
+
 ### BIRTHCERTIFICATE
+
+| Key | Eg Value |
+| --- | --- | --- |
+| Key | BIRTHCERTIFICATE |
+| Name | JOHN DOE |
+| Issued | 2018-01-01 |
+
 ```
 {
     Key: 'BIRTHCERTIFICATE',
-    Name: '',
-    Issued: ''
+    Name: 'JOHN DOE',
+    Issued: '2018-01-01'
     Documents: [
 
     ]
@@ -82,7 +95,10 @@ Eg SHA-256 hash `0xa9dc32cc4b5416158dabefae23c8c6bd000841755a58e4c29e920af2705df
 ## Participants
 
 ### KYC issuers
-Australian issuers - RapidID
+Australian issuers
+
+| Name | Public Key | Url |
+
 
 
 
