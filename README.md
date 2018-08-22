@@ -5,7 +5,7 @@ Using uPort or other wallets and ERC780 contracts to make portable KYC attestati
 
 ## Process
 1. New users visit a site such as https://id.blockchainaustralia.org
-2. Deploy to Rinkeby [4]
+2. Complete an online form
 3. Create a Nodejs POC
 4. Create a .Net Core POC
 
@@ -24,6 +24,18 @@ enum Class {
     Secondary
 }
 ```
+
+Once documents have been certified, their Key and the hash of the JSON object are added to the users public key.
+
+```
+struct Document {
+	Key,
+	Hash,
+	Date,
+	Verified
+}
+```
+
 
 ## Proxy contract
 
