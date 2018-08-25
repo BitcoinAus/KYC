@@ -1,8 +1,7 @@
 pragma solidity ^0.4.24;
 
-import "./Whitelist.sol";
-
-contract Registry is Whitelist {
+//Simple repository contract to store data
+contract Registry {
 
     address public owner;
 
@@ -10,10 +9,6 @@ contract Registry is Whitelist {
 
     event ClaimSet(address indexed issuer, address indexed subject, bytes32 indexed key, bytes32 value, uint updatedAt);
     event ClaimRemoved(address indexed issuer, address indexed subject, bytes32 indexed key, uint removedAt);
-
-    constructor () public {
-        owner = msg.sender;
-    }
 
     // create or update clams
     function setClaim(address subject, bytes32 key, bytes32 value) external {

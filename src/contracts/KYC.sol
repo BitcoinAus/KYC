@@ -1,9 +1,10 @@
 pragma solidity ^0.4.23;
 
-contract Points {
+//Australian KYC Contract
+contract KYC {
 
     address private _owner;
-    address private claimsRegistry = 0xC9ed21FfCc88a5072454c43BDFdBbE3430888b19;
+    address private registry = 0xC9ed21FfCc88a5072454c43BDFdBbE3430888b19;
 
     //
     enum PrimaryDocumentTypes {
@@ -33,5 +34,9 @@ contract Points {
 
     function getPoints(address subject) public view returns(uint) {
         return 70;
+    }
+
+    function isKYC(address subject) public pure returns(bool) {
+        
     }
 }

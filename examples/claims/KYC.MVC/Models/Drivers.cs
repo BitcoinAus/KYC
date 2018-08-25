@@ -11,8 +11,8 @@ namespace KYC.MVC.Models
 {
     public class Drivers : RaidID.DriversRequest
     {
-        [DisplayName("uPort Address")]
-        public String uPortAddress { get; set; }
+        [DisplayName("Ethereum Address")]
+        public String Address { get; set; }
 
         [DisplayName("Country Code")]
 		[RegularExpression(@"[A-Z]{3}", ErrorMessage = "Invalid Country Code")]
