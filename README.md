@@ -13,6 +13,11 @@ The process to add a new user to the KYC smart contract is:
 4. A call to RapidID's REST API is posted
 5. If verified, the data is hashed and submitted to the Ethereum blockchain
 
+## Contracts
+There are two smart contracts.  
+1. The repository ERC70 contract which stores data in Key Value pairs.  
+2. The KYC proxy that implements business logic functions, such as "points value"
+
 ## Claim types
 Based on the 100 Point ID check Australia.  
 
@@ -41,13 +46,13 @@ struct Document {
 ```
 
 
-## Proxy contract
-Proxy contracts will ...
+## KYC contract
+KYC contracts will determine the users KYC state, based on local laws.  These will be deployed from parties, such as Blockchain Australia.  Finanical services will call these top level contracts to determine their users KYC status.
 
 
 ## Document taxonomy
 
-Primary and secondary documents are represented as JSON in the following formats.  The hash of the document is then added to the ERC780 register.
+Primary and secondary documents are represented as JSON in the following formats.  The hash of the document is then added to the ERC780 register contract.
 
 ``
 {
@@ -117,24 +122,21 @@ Australian issuers
 
 
 
-
 ### Exchanges and other money remittance services
 
 
 ### End users
 
 
-### Contract vettors
-| Name | Public Key |
+### KYC Contract Owners
+| Name | Public Key | Url |
 ---
-| Blockchain Australia | 0xa25Fe077D33F93816ad06A4F7dCE2f3808D01085 |
-| ConsenSys | 0x00 |
-| ADCA | 0x00 |
-
+| Blockchain Australia | 0xa25Fe077D33F93816ad06A4F7dCE2f3808D01085 | https://blockchainaustralia.org/kyc |
+| ConsenSys | 0x00 | |
 
 ## Contract specs
 
-The contract to holds clients KYC attestations will adhere to ERC780.  We are using the uPort contract ``, deployed on Rinkeby at `0xc9ed21ffcc88a5072454c43bdfdbbe3430888b19`.
+The contract to holds clients KYC attestations will adhere to ERC780.  We are using the ConsenSys uPort contract ``, deployed on Rinkeby at `0xc9ed21ffcc88a5072454c43bdfdbbe3430888b19`.
 
 ## Validating 100 points
 The "100" points proxy contract will iterate through the underling claims contact `0xc9ed21ffcc88a5072454c43bdfdbbe3430888b19`.  Using the key and points values from the above table, will then aggrate the total.
@@ -162,7 +164,6 @@ https://github.com/uport-project/ethereum-claims-registry
 
 JSON
 https://raw.githubusercontent.com/uport-project/ethereum-claims-registry/master/build/contracts/EthereumClaimsRegistry.json
-
 
 100 Point ID check Australia
 https://www.homeaffairs.gov.au/Licensing/Documents/100-points-identification-guidelines.pdf
