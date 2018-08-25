@@ -42,7 +42,7 @@ struct Document {
 
 
 ## Proxy contract
-
+Proxy contracts will ...
 
 
 ## Document taxonomy
