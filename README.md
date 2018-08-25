@@ -16,10 +16,10 @@ The process to add a new user to the KYC smart contract is:
 ## Claim types
 Based on the 100 Point ID check Australia.  
 
-| Key | Class | Document Type | Point Value |
-| --- | --- | --- | --- |
-| BIRTHCERTIFICATE | Primary | Birth Certificate | 70 | 0x42495254484345525449464943415445
-| DRIVERSLICENCE | Secondary | Driver’s Licence | 40 | 0x445249564552534c4943454e4345
+| Key | Class | Document Type | Point Value | Key as Bytes32 |
+| --- | --- | --- | --- | --- |
+| BIRTHCERTIFICATE | Primary | Birth Certificate | 70 | 0x42495254484345525449464943415445 |
+| DRIVERSLICENCE | Secondary | Driver’s Licence | 40 | 0x445249564552534c4943454e4345 |
 
 Classes represented in the smart contract as an enum
 ```
