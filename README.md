@@ -3,11 +3,15 @@
 ## Abstract
 Using uPort or other wallets and ERC780 contracts to make portable KYC attestations.  Users will be able to verify their idenity once, use many across financial services.  This demo is on the Rinkeby network.
 
+This code will enable white label KYC portals to be deployed.
+
 ## Process
-1. New users visit a site such as https://id.blockchainaustralia.org
+The process to add a new user to the KYC smart contract is:
+1. New users visits the portal https://id.blockchainaustralia.org
 2. Complete an online form
-3. Create a Nodejs POC
-4. Create a .Net Core POC
+3. The website is configured to use a reputal KYC vendor, such as RaidID
+4. A call to RapidID's REST API is posted
+5. If verified, the data is hashed and submitted to the Ethereum blockchain
 
 ## Claim types
 Based on the 100 Point ID check Australia.  
