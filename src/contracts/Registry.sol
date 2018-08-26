@@ -3,8 +3,6 @@ pragma solidity ^0.4.24;
 //Simple repository contract to store data
 contract Registry {
 
-    address public owner;
-
     mapping(address => mapping(address => mapping(bytes32 => bytes32))) public registry;
 
     event ClaimSet(address indexed issuer, address indexed subject, bytes32 indexed key, bytes32 value, uint updatedAt);

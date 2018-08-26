@@ -19,6 +19,7 @@ namespace KYC.MVC.Controllers
     public class HomeController : Controller
     {
         private const String url = "https://sandbox.rapidid.com.au/dvs/driverLicence";
+
         private const String api_key = "075c4cccb5144349bd94035b29c387c5067375d978e9caed2d0709a8f73274ef";
 
         private const String ethereumNodeUrl = "https://rinkeby.infura.io/RqID87GolHAMOx5Ws3ud";
@@ -28,7 +29,6 @@ namespace KYC.MVC.Controllers
 
         //Blockchain australia
         private const String issuer_address = "0xa25Fe077D33F93816ad06A4F7dCE2f3808D01085";
-        
 
         public IActionResult Index()
         {
@@ -61,7 +61,7 @@ namespace KYC.MVC.Controllers
         {
 			Drivers driver = new Drivers()
 			{
-				uPortAddress = "0x94D61685D2B7b656C38e7bedAca4f5743d1362c4",
+				//uPortAddress = "0x94D61685D2B7b656C38e7bedAca4f5743d1362c4",
                 GivenName = "Mary",
                 FamilyName = "Lee",
                 BirthDate = "1985-02-08",

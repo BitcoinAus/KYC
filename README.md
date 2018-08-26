@@ -15,7 +15,7 @@ The process to add a new user to the KYC smart contract is:
 
 ## Contracts
 There are two smart contracts.  
-1. The repository ERC70 contract which stores data in Key Value pairs.  
+1. The repository ERC70 contract which stores data in Key Value pairs.  The contract to holds clients KYC attestations will adhere to ERC780.  We are using the ConsenSys uPort contract `0xc9ed21ffcc88a5072454c43bdfdbbe3430888b19` deployed on Rinkeby.
 2. The KYC proxy that implements business logic functions, such as "points value"
 
 ## Claim types
@@ -25,6 +25,7 @@ Based on the 100 Point ID check Australia.
 | --- | --- | --- | --- | --- |
 | BIRTHCERTIFICATE | Primary | Birth Certificate | 70 | 0x42495254484345525449464943415445 |
 | DRIVERSLICENCE | Secondary | Driver’s Licence | 40 | 0x445249564552534c4943454e4345 |
+| RESIDENTALCOUNTRY | NA | Country of Residence | 0 | 0x00 |
 
 Classes represented in the smart contract as an enum
 ```
@@ -115,28 +116,11 @@ Eg SHA-256 hash `0xa9dc32cc4b5416158dabefae23c8c6bd000841755a58e4c29e920af2705df
 
 ## Participants
 
-### KYC issuers
-Australian issuers
-
-| Name | Public Key | Url |
-
-
-
-### Exchanges and other money remittance services
-
-
-### End users
-
-
 ### KYC Contract Owners
 | Name | Public Key | Url |
----
+| --- | --- | --- |
 | Blockchain Australia | 0xa25Fe077D33F93816ad06A4F7dCE2f3808D01085 | https://blockchainaustralia.org/kyc |
 | ConsenSys | 0x00 | |
-
-## Contract specs
-
-The contract to holds clients KYC attestations will adhere to ERC780.  We are using the ConsenSys uPort contract ``, deployed on Rinkeby at `0xc9ed21ffcc88a5072454c43bdfdbbe3430888b19`.
 
 ## Validating 100 points
 The "100" points proxy contract will iterate through the underling claims contact `0xc9ed21ffcc88a5072454c43bdfdbbe3430888b19`.  Using the key and points values from the above table, will then aggrate the total.
@@ -148,12 +132,13 @@ contract Points {
 ```
 
 ## Test keys
-"Blockchain Australia" 0x3b3617c923fc5d7ea2aa1fc10d98e5b15cf1ade7b463c2dc929a1d2498137472 0xa25Fe077D33F93816ad06A4F7dCE2f3808D01085
+| Vendor | Private Key | Public Key |
+| --- | --- | --- |
+| "Blockchain Australia" | 0x3b3617c923fc5d7ea2aa1fc10d98e5b15cf1ade7b463c2dc929a1d2498137472 |0xa25Fe077D33F93816ad06A4F7dCE2f3808D01085 |
 
 ## References
 
 ERC 780 specs https://github.com/ethereum/EIPs/issues/780
-
 
 First iteration of this is now available at uport-project/ethereum-claims-registry!
 It's also deployed to the following addresses:
