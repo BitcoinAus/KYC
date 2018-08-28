@@ -13,6 +13,10 @@ The process to add a new user to the KYC smart contract is:
 4. A call to RapidID's REST API is posted
 5. If verified, the data is hashed and submitted to the Ethereum blockchain
 
+To verify a users 100 points of ID, they are asked to sign a message from the private key that holds their attestations.
+1. The exchange website generates a unique message
+
+
 ## Contracts
 There are two smart contracts.  
 1. The repository ERC70 contract which stores data in Key Value pairs.  
@@ -119,7 +123,6 @@ Eg SHA-256 hash `0xa9dc32cc4b5416158dabefae23c8c6bd000841755a58e4c29e920af2705df
 Australian issuers
 
 | Name | Public Key | Url |
-
 
 
 ### Exchanges and other money remittance services
