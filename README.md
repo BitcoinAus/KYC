@@ -9,7 +9,7 @@ This code will enable white label KYC portals to be deployed.
 The process to add a new user to the KYC smart contract is:
 1. New users visits the portal https://id.blockchainaustralia.org
 2. Complete an online form
-3. The website is configured to use a reputal KYC vendor, such as RaidID
+3. The website is configured to use our KYC vendor RaidID
 4. A call to RapidID's REST API is posted
 5. If verified, the data is hashed and submitted to the Ethereum blockchain
 

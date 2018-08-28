@@ -20,7 +20,7 @@ namespace KYC.MVC.Tests
                 StateOfIssue = "ACT" 
             };
 
-			await controller.Post(request);
+			//await controller.Post(request);
         }
     }
 }

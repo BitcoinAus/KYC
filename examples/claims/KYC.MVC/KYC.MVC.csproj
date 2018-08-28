@@ -20,6 +20,7 @@
     <Folder Include="Controllers\API\" />
     <Folder Include="Models\RaidID\" />
     <Folder Include="Models\Contracts\" />
+    <Folder Include="Views\Drivers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\Home\About.cshtml" />

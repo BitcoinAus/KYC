@@ -27,12 +27,6 @@ contract KYC {
         bytes32 Key;
     }
 
-    struct KYCProvider {
-        address PublicKey;
-        string Name;
-        string Url;
-    }
-
     DocumentType[] public validDocumentTypes;
 
     mapping(address=> KYCProvider) validKYCProviders;
@@ -54,10 +48,6 @@ contract KYC {
     function apply(address publicKey, string name, string url) public payable {
         require(msg.value >= 1 ether, "Must be 1 eth");
         //validKYCProviders[msg.sender] =
-    }
-
-    function addVendor(address publicKey, string name, string url) public onlyOwner() {
-        validKYCProviders[msg.sender] = KYCProvider(publicKey, name, url);
     }
 
     function getUsersPoints(address subject) public view returns (uint8) {

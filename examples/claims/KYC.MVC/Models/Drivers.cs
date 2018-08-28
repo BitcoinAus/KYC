@@ -31,7 +31,7 @@ namespace KYC.MVC.Models
 			String flat = Newtonsoft.Json.JsonConvert.SerializeObject(this);
 			var hash = Helpers.sha256_hash(Newtonsoft.Json.JsonConvert.SerializeObject(this));
             
-            return new Claim() { Subject = uPortAddress, Key = "445249564552534c4943454e4345", Value = hash };
+            return new Claim() { Subject = Address, Key = "445249564552534c4943454e4345", Value = hash };
         }
     }
 }

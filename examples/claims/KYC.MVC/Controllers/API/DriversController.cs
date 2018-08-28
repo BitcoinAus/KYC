@@ -15,7 +15,12 @@ namespace KYC.MVC.Controllers.API
     public class DriversController : Controller
     {
 		private const string url = "https://sandbox.rapidid.com.au/dvs/driverLicence";
-		private const string api_key = "075c4cccb5144349bd94035b29c387c5067375d978e9caed2d0709a8f73274ef";
+		private readonly string api_key;
+
+        public DriversController()
+        {
+            this.api_key = "075c4cccb5144349bd94035b29c387c5067375d978e9caed2d0709a8f73274ef";
+        }
 
         [HttpPost]
         public async Task Post(Models.RaidID.DriversRequest request)
