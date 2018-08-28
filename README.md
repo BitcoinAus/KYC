@@ -13,6 +13,21 @@ The process to add a new user to the KYC smart contract is:
 4. A call to RapidID's REST API is posted
 5. If verified, the data is hashed and submitted to the Ethereum blockchain
 
+To verify a users 100 points of ID, they are asked to sign a message from the private key that holds their attestations.
+1. The exchange website generates a unique message for that user. Eg I Lucas Cullen, are the owner of the address 0xa25Fe077D33F93816ad06A4F7dCE2f3808D0108529-08-2018
+2. User generates the signed message from a wallet or service, such as https://www.myetherwallet.com/signmsg.html
+3. If the signature is valid, the exchange can assert the user is correct
+
+```
+{
+  "address": "0xa25fe077d33f93816ad06a4f7dce2f3808d01085",
+  "msg": "I Lucas Cullen, are the owner of the address 0xa25Fe077D33F93816ad06A4F7dCE2f3808D0108529-08-2018",
+  "sig": "0xad44f6f7d4cc87859437734546df99baafe343dac71452aea08aea7beaf754c97880513568163c28bccfca135a4e100bbc6c3d3a663737b31506d2f9f3fe34901b",
+  "version": "3",
+  "signer": "MEW"
+}
+```
+
 ## Contracts
 There are two smart contracts.  
 1. The repository ERC70 contract which stores data in Key Value pairs.  The contract to holds clients KYC attestations will adhere to ERC780.  We are using the ConsenSys uPort contract `0xc9ed21ffcc88a5072454c43bdfdbbe3430888b19` deployed on Rinkeby.
