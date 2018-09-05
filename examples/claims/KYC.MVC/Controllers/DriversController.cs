@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Nethereum.RPC.Accounts;
 using Newtonsoft.Json;
+using System.Text.Encodings;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -53,7 +54,7 @@ namespace KYC.MVC.Controllers
             var payload = JsonConvert.SerializeObject(request);
 
             // Wrap our JSON inside a StringContent which then can be used by the HttpClient class
-            var httpContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            var httpContent = new StringContent(payload, System.Text.Encoding.UTF8, "application/json");
             httpContent.Headers.Add("token", api_key);
 
             using (var httpClient = new HttpClient())
