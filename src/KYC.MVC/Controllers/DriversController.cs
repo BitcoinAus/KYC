@@ -60,7 +60,7 @@ namespace KYC.MVC.Controllers
             using (var httpClient = new HttpClient())
             {
                 // Do the actual request and await the response
-                var httpResponse = await httpClient.PostAsync(url, httpContent);
+                var httpResponse = await httpClient.PostAsync(api_url, httpContent);
 
                 // If the response contains content we want to read it!
                 if (httpResponse.Content != null && httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
@@ -68,12 +68,12 @@ namespace KYC.MVC.Controllers
                     var responseContent = await httpResponse.Content.ReadAsStringAsync();
                     var claim = model.ToClaim();
                     
-                    IAccount account = new Nethereum.Web3.Accounts.Account(base.GetKey(0), Nethereum.Signer.Chain.Rinkeby);
+                    // IAccount account = new Nethereum.Web3.Accounts.Account(base.GetKey(0), Nethereum.Signer.Chain.Rinkeby);
 
-                    ClaimsContract contract = new ClaimsContract(node, account);
-                    String tx = await contract.SetClaim(claim.Subject, claim.Key, claim.Value);
+                    // ClaimsContract contract = new ClaimsContract(node, account);
+                    // String tx = await contract.SetClaim(claim.Subject, claim.Key, claim.Value);
 
-                    ViewBag.Tx = tx;
+                    // ViewBag.Tx = tx;
 
                     return View();
                 }

@@ -8,7 +8,7 @@ namespace KYC.MVC.Models.RaidID
     public class DriversRequest
     {
         [DisplayName("Birth Date YYYY-MM-DD")]
-		[RegularExpression(@"([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))", ErrorMessage = "Invalid Birthdate")]
+		[RegularExpression(@"([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))", ErrorMessage = "Invalid Birth Date")]
         public String BirthDate { get; set; }
 
         [DisplayName("Given Name")]
