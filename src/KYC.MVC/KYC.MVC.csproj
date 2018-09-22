@@ -22,6 +22,7 @@
     <Folder Include="Models\Contracts\" />
     <Folder Include="Views\Drivers\" />
     <Folder Include="Views\Query\" />
+    <Folder Include="Views\Passport\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\Home\About.cshtml" />

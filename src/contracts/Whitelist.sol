@@ -5,19 +5,25 @@ contract Whitelist {
 
     address private _owner;
 
-    mapping(address => address) Provider;
+    struct Provider {
+        string Name;
+        address PublicKey;
+        string Url;
+    }
+
+    mapping(address => Provider) Providers;
 
     constructor() public {
         _owner = msg.sender;
     }
 
-    function add(address subject) public onlyOwner  {
-        Provider[subject] = subject;
+    function add(string name, address key, string url) public onlyOwner()  {
+        Providers[key] = Provider(name, key, url);
     }
 
-    // function remove(address subject) onlyOwner public {
-    //     Verified[subject] = subject;
-    // }
+    function remove(address subject) public onlyOwner() {
+        delete Providers[subject];
+    }
 
     modifier onlyOwner() {
         require(_owner == msg.sender);

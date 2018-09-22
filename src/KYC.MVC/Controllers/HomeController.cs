@@ -35,21 +35,6 @@ namespace KYC.MVC.Controllers
             
             return View(query);
         }
-        
-        public async Task<IActionResult> Query(Query model)
-        {
-			//Web3 web3 = new Web3(ethereumNodeUrl);
-			//var contract = web3.Eth.GetContract(abi, contract_address);
-
-			//var getClaim = contract.GetFunction("getClaim");
-			//var value = await getClaim.CallAsync<String>(model.Issuer, model.Subject, model.Key);
-
-
-			ClaimsContract contract = new ClaimsContract(node);
-			String value = await contract.GetClaim(model.Subject, model.Key);
-
-            return View();
-        }
 
         [HttpPost]
 		public IActionResult Claim()
@@ -60,7 +45,6 @@ namespace KYC.MVC.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Ethereum KYC and uPort";
-
             return View();
         }
     }

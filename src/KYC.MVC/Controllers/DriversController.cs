@@ -17,7 +17,6 @@ namespace KYC.MVC.Controllers
 {
     public class DriversController : BaseController
     {
-    
         public DriversController(IConfiguration configuration)
         {
             base.node = configuration.GetSection("Node").Value;

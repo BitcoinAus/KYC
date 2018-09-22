@@ -10,8 +10,10 @@ namespace KYC.MVC.Controllers
 { 
     public abstract class BaseController : Controller
     {
+        //TODO: MOVE
         internal const String url = "https://sandbox.rapidid.com.au/dvs/driverLicence";
 
+        //TODO: MOVE
         internal const String api_key = "075c4cccb5144349bd94035b29c387c5067375d978e9caed2d0709a8f73274ef";
     
         internal String node = "https://rinkeby.infura.io/RqID87GolHAMOx5Ws3ud";

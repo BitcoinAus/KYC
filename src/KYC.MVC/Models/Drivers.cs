@@ -16,10 +16,10 @@ namespace KYC.MVC.Models
 
         [DisplayName("Country Code")]
 		[RegularExpression(@"[A-Z]{3}", ErrorMessage = "Invalid Country Code")]
-        public string CountryCode { get; set; }
+        public String CountryCode { get; set; }
 
         //TODO: Review
-        public string Key { get { return "445249564552534c4943454e4345"; } }
+        public String Key { get { return "445249564552534c4943454e4345"; } }
 
         public Byte[] GetHash()
         {

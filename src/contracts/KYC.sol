@@ -29,8 +29,6 @@ contract KYC {
 
     DocumentType[] public validDocumentTypes;
 
-    mapping(address=> KYCProvider) validKYCProviders;
-
     constructor() public {
         _owner = msg.sender;
 
@@ -41,13 +39,8 @@ contract KYC {
         registry = Registry(0xC9ed21FfCc88a5072454c43BDFdBbE3430888b19);
     }
 
-    function addDocumentType() public onlyOwner() {
-
-    }
-
-    function apply(address publicKey, string name, string url) public payable {
-        require(msg.value >= 1 ether, "Must be 1 eth");
-        //validKYCProviders[msg.sender] =
+    function addDocumentType(uint8 points, bytes32 key) public onlyOwner() {
+        validDocumentTypes.push(DocumentType(0, points, key));
     }
 
     function getUsersPoints(address subject) public view returns (uint8) {
