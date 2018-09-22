@@ -17,18 +17,24 @@ using Microsoft.Extensions.Configuration;
 
 namespace KYC.MVC.Controllers
 {
-    public class HomeController : BaseController
-    {        
+    public class HomeController : Controller
+    {
+        private readonly IConfiguration _configuration;
+
+        public String ContractAddress { get; }
+
         public HomeController(IConfiguration configuration)
         {
-            
+            _configuration = configuration;
+            this.ContractAddress = _configuration.GetSection("Issuers").GetSection("Blockchain Australia").Value;
+            ViewBag.ContractAddress = this.ContractAddress;
         }
 
         public IActionResult Index()
         {
-			Query query = new Query() 
+			Models.QueryRequest query = new Models.QueryRequest() 
             { 
-                Issuer = "0xa25Fe077D33F93816ad06A4F7dCE2f3808D01085", 
+                Issuer = _configuration.GetSection("ClaimsContract").Value,
                 Key = "0x445249564552534c4943454e4345", 
                 Subject = "0x94D61685D2B7b656C38e7bedAca4f5743d1362c4" 
             };

@@ -20,6 +20,7 @@ namespace KYC.MVC.Controllers
         public DriversController(IConfiguration configuration)
         {
             base.node = configuration.GetSection("Node").Value;
+            base.api_key = configuration.GetSection("Providers").GetSection("RapidID").GetSection("APIKey").Value;
         }
         
         // GET: /<controller>/

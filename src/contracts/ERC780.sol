@@ -1,7 +1,7 @@
 pragma solidity ^0.4.24;
 
 //Simple repository contract to store data
-contract ERC780x {
+contract ERC780 {
 
     mapping(address => mapping(address => mapping(bytes32 => bytes32))) public registry;
 

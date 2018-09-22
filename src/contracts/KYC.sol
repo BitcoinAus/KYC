@@ -6,7 +6,7 @@ import "./Registry.sol";
 contract KYC {
 
     address private _owner;
-    address private _defaultProvider = 0xa25Fe077D33F93816ad06A4F7dCE2f3808D01085;
+    address private constant BLOCKCHAIN_AUSTRALIA = 0xa25Fe077D33F93816ad06A4F7dCE2f3808D01085;
 
     Registry registry;
 
@@ -32,10 +32,10 @@ contract KYC {
     constructor() public {
         _owner = msg.sender;
 
-        validDocumentTypes.push(DocumentValue(Class.Primary, 70, 0x42495254484345525449464943415445));
-        validDocumentTypes.push(DocumentValue(Class.Secondary, 40, 0x445249564552534c4943454e4345));
+        validDocumentTypes.push(DocumentType(DocumentClass.Primary, 70, 0x42495254484345525449464943415445));
+        validDocumentTypes.push(DocumentType(DocumentClass.Secondary, 40, 0x445249564552534c4943454e4345));
 
-        //ERC780
+        //ERC780 repo
         registry = Registry(0xC9ed21FfCc88a5072454c43BDFdBbE3430888b19);
     }
 
@@ -46,12 +46,13 @@ contract KYC {
     function getUsersPoints(address subject) public view returns (uint8) {
         uint8 points = 0;
         //
-        for (int i = 0; i < validDocumentTypes.length; i++) {
+        for (uint256 i = 0; i < validDocumentTypes.length; i++) {
+
             DocumentType memory docType = validDocumentTypes[i];
-            bytes32 claim = registry.getClaim(provider, subject, docType.Key);
+            bytes32 claim = registry.getClaim(BLOCKCHAIN_AUSTRALIA, subject, docType.Key);
 
             if (claim != 0x00) {
-                points += docType.Ponts;
+                points += docType.Points;
             }
         }
 
@@ -63,7 +64,7 @@ contract KYC {
     }
 
     modifier onlyOwner() {
-        registry(msg.sender == owner);
+        require(msg.sender == _owner);
         _;
     }
 }

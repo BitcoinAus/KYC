@@ -1,3 +1,68 @@
-﻿@page
+﻿@model KYC.MVC.Models.QueryRequest
+
 @{
+    ViewData["Title"] = "Ethereum KYC";
 }
+
+<br/>
+
+<div class="row">
+    <div class="col-md-12 col-lg-12">
+
+        <h2>Get users claims and points</h2>
+
+        <form asp-action="Claim">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Issuer" class="control-label"></label>
+                <input asp-for="Issuer" class="form-control" />
+                <span asp-validation-for="Issuer" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Key" class="control-label"></label>
+                <input asp-for="Key" class="form-control" />
+                <span asp-validation-for="Key" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Retrieve" class="btn btn-default" />
+            </div>
+        </form>
+
+        <h2>Verify a claim</h2>
+
+        <form asp-action="Query">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Issuer" class="control-label"></label>
+                <input asp-for="Issuer" class="form-control" />
+                <span asp-validation-for="Issuer" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Key" class="control-label"></label>
+                <input asp-for="Key" class="form-control" />
+                <span asp-validation-for="Key" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Validate" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>

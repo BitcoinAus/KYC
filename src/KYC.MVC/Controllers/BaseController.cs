@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,25 +11,16 @@ namespace KYC.MVC.Controllers
 { 
     public abstract class BaseController : Controller
     {
-        //TODO: MOVE
-        internal const String url = "https://sandbox.rapidid.com.au/dvs/driverLicence";
+        internal String node;
 
-        //TODO: MOVE
-        internal const String api_key = "075c4cccb5144349bd94035b29c387c5067375d978e9caed2d0709a8f73274ef";
-    
-        internal String node = "https://rinkeby.infura.io/RqID87GolHAMOx5Ws3ud";
-    
-        //Rinkeby
-        internal const String contract_address = "0xC9ed21FfCc88a5072454c43BDFdBbE3430888b19";
-    
-        //Blockchain australia
-        internal const String issuer_address = "0xa25Fe077D33F93816ad06A4F7dCE2f3808D01085";
+        internal String api_key;
 
-		internal String key = "";
-        
-        internal String GetKey(int index)
+        internal async Task<String> AddClaim(Models.DTOs.Claim claim)
         {
-			return "0x3b3617c923fc5d7ea2aa1fc10d98e5b15cf1ade7b463c2dc929a1d2498137472"; 
+            IAccount account = new Nethereum.Web3.Accounts.Account(base.GetKey(0), Nethereum.Signer.Chain.Rinkeby);
+
+            ClaimsContract contract = new ClaimsContract(node, account);
+            return await contract.SetClaim(claim.Subject, claim.Key, claim.Value);
         }
     }
 }

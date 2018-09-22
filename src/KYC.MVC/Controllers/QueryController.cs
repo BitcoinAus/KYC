@@ -9,6 +9,12 @@ namespace KYC.MVC.Controllers
 {
     public class QueryController : BaseController
     {
+        // GET: /<controller>/
+        public IActionResult Index(String id)
+        {
+            return View();
+        }
+
         public async Task<IActionResult> Find(QueryRequest model)
         {
 			//Web3 web3 = new Web3(ethereumNodeUrl);
@@ -22,12 +28,6 @@ namespace KYC.MVC.Controllers
 			String value = await contract.GetClaim(model.Subject, model.Key);
 
             return View(value);
-        }
-
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
-            return View();
         }
     }
 }

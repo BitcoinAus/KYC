@@ -1,4 +1,4 @@
-﻿@model KYC.MVC.Models.Query
+﻿@model KYC.MVC.Models.QueryRequest
 
 @{
     ViewData["Title"] = "Ethereum KYC";
@@ -8,7 +8,10 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">About blockchain KYC</div>
-    <div class="panel-body"></div>
+    <div class="panel-body">
+
+        
+    </div>
 </div>
 
 <div class="row">
@@ -16,12 +19,40 @@
         <div class="panel panel-default">
             <div class="panel-heading">Add a claim</div>
             <div class="panel-body">
-                <p>Issuer: Blockchain Australia 0x00</p>
+                <p>Issuer: Blockchain Australia @ViewBag.ContractAddress</p>
 
                 <p>Type: Australian Drivers Licence Key: 0x445249564552534c4943454e4345</p>
                 <a href="/Home/Drivers">Drivers</a>
             </div>
         </div>
+
+        <h2>Get users claims and points</h2>
+
+        <form asp-action="Claim">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Issuer" class="control-label"></label>
+                <input asp-for="Issuer" class="form-control" />
+                <span asp-validation-for="Issuer" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Key" class="control-label"></label>
+                <input asp-for="Key" class="form-control" />
+                <span asp-validation-for="Key" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Retrieve" class="btn btn-default" />
+            </div>
+        </form>
 
         <h2>Verify a claim</h2>
 
