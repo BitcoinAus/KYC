@@ -5,6 +5,8 @@ Using uPort or other wallets and ERC780 contracts to make portable KYC attestati
 
 This code will enable white label KYC portals to be deployed.
 
+There is provision in the existing legislative framework for this type of co-ordinated KYC approach to be undertaken. http://www.austrac.gov.au/chapter-3-designated-business-groups#what
+
 ## Process
 The process to add a new user to the KYC smart contract is:
 1. New users visits the portal https://id.blockchainaustralia.org
