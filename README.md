@@ -1,5 +1,13 @@
 # KYC
 
+Problem Statement - Under new legislative requirements passed into law in Australia in 2018, all businesses providing exchange services into digital currencies such as Bitcoin need to be registered with AUSTRAC and need to complete due diligance with respect to AM/CT risk and to complete certain KYC checks depending on the above risks.
+
+By implementing the following steps, we provide a way for a user to complete the KYC process once and have this verification available to other service providers in the Digital Exchange Service industry.
+
+In order of this initial verification attestation to be valuable to other service providers, it must cover all of the checks required under Australian legislation. Initially this will be to complete 100 Points of Identification and a PEP check. Other verifications can be added at leter stages as required.
+
+An entity will also have to be registered with AUSTRAC as the Designated Business Group (DBG) in order for other entities to use the verification undertaken by the DBG.
+
 ## Abstract
 Using uPort or other wallets and ERC780 contracts to make portable KYC attestations.  Users will be able to verify their idenity once, use many across financial services.  This demo is on the Rinkeby network.
 
