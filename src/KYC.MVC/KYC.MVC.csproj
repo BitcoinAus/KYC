@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Contracts\**" />
+    <Content Remove="Models\Contracts\**" />
+    <EmbeddedResource Remove="Models\Contracts\**" />
+    <None Remove="Models\Contracts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BouncyCastle.NetCore" Version="1.8.2" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
@@ -19,10 +26,9 @@
   <ItemGroup>
     <Folder Include="Controllers\API\" />
     <Folder Include="Models\RaidID\" />
-    <Folder Include="Models\Contracts\" />
     <Folder Include="Views\Drivers\" />
-    <Folder Include="Views\Query\" />
     <Folder Include="Views\Passport\" />
+    <Folder Include="Views\Query\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\Home\About.cshtml" />

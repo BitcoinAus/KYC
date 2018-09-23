@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using KYC.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Nethereum.RPC.Accounts;
 
