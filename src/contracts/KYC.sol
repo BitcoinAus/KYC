@@ -8,12 +8,21 @@ contract KYC {
     address private _owner;
     address private constant BLOCKCHAIN_AUSTRALIA = 0xa25Fe077D33F93816ad06A4F7dCE2f3808D01085;
 
-    Registry registry;
+    //Claims
+    struct Claim {
+        bytes32 subject;
+        bytes32 claimType;
+        address issuer;
+        uint64 timestamp;
+        uint64 expires;
+        bytes data;
+    }
 
-    //
-    enum PrimaryDocumentTypes {
-        DRIVERSLICENCE, //0x445249564552534c4943454e4345
-        BIRTHCERTIFICATE //0x42495254484345525449464943415445
+    mapping(address => Claim[]) public registry;
+
+    function addClaim(bytes32 subject, bytes32 claimType, uint64 expires, bytes data) public {
+        require(exires > now, "Claim has expired");
+        registry.push(Claim(subject, claimType, msg.sender, now, expires, data));
     }
 
     enum DocumentClass {
@@ -35,8 +44,7 @@ contract KYC {
         validDocumentTypes.push(DocumentType(DocumentClass.Primary, 70, 0x42495254484345525449464943415445));
         validDocumentTypes.push(DocumentType(DocumentClass.Secondary, 40, 0x445249564552534c4943454e4345));
 
-        //ERC780 repo
-        registry = Registry(0xC9ed21FfCc88a5072454c43BDFdBbE3430888b19);
+        registry = Registry();
     }
 
     function addDocumentType(uint8 points, bytes32 key) public onlyOwner() {

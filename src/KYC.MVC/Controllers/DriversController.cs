@@ -20,7 +20,7 @@ namespace KYC.MVC.Controllers
         public DriversController(IConfiguration configuration)
         {
             base.node = configuration.GetSection("Node").Value;
-            base.api_key = configuration.GetSection("Providers").GetSection("RapidID").GetSection("APIKey").Value;
+            base.api_key = configuration.GetSection("Providers").GetSection("RapidID").GetSection("APIToken").Value;
         }
         
         // GET: /<controller>/
@@ -42,7 +42,7 @@ namespace KYC.MVC.Controllers
         [HttpPost]
         public async Task <IActionResult> Create(Drivers model)
         {
-            Models.RaidID.DriversRequest request = new Models.RaidID.DriversRequest()
+            Models.RapidID.DriversRequest request = new Models.RapidID.DriversRequest()
             {
                 BirthDate = model.BirthDate,
                 FamilyName = model.FamilyName,

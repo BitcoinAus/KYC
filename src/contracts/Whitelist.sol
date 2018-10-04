@@ -1,9 +1,9 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.4.24;
+
+import "./Ownable.sol";
 
 //List of ID providers
-contract Whitelist {
-
-    address private _owner;
+contract Whitelist is Ownable {
 
     struct Provider {
         string Name;
@@ -14,7 +14,6 @@ contract Whitelist {
     mapping(address => Provider) Providers;
 
     constructor() public {
-        _owner = msg.sender;
     }
 
     function add(string name, address key, string url) public onlyOwner()  {
@@ -23,10 +22,5 @@ contract Whitelist {
 
     function remove(address subject) public onlyOwner() {
         delete Providers[subject];
-    }
-
-    modifier onlyOwner() {
-        require(_owner == msg.sender);
-        _;
     }
 }

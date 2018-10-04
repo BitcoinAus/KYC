@@ -1,30 +1,30 @@
 pragma solidity ^0.4.24;
 
 //Simple repository contract to store data
+//ERC735 or  939
 contract Registry {
 
-    mapping(address => mapping(address => mapping(bytes32 => bytes32))) public registry;
-
-    event ClaimSet(address indexed issuer, address indexed subject, bytes32 indexed key, bytes32 value, uint updatedAt);
-    event ClaimRemoved(address indexed issuer, address indexed subject, bytes32 indexed key, uint removedAt);
-
-    // create or update clams
-    function setClaim(address subject, bytes32 key, bytes32 value) public {
-        registry[msg.sender][subject][key] = value;
-        emit ClaimSet(msg.sender, subject, key, value, now);
+    struct Claim {
+        bytes32 subject;
+        bytes32 claimType;
+        address issuer;
+        uint64 timestamp;
+        uint64 expires;
+        bytes data;
     }
 
-    function setSelfClaim(bytes32 key, bytes32 value) public {
-        setClaim(msg.sender, key, value);
+    mapping(address => Claim[]) public registry;
+
+    function addClaim(bytes32 subject, bytes32 claimType, uint64 expires, bytes data) public returns (uint256 index) {
+        require(exires > now, "Claim has expired");
+        registry.push(Claim(subject, claimType, msg.sender, now, expires, data));
+
+        returns registry[subject].length;
     }
 
-    function getClaim(address issuer, address subject, bytes32 key) public view returns(bytes32) {
-        return registry[issuer][subject][key];
+    function getClaims(bytes32 subject, address issuer) public returns (uint256 index) {
+
     }
 
-    function removeClaim(address issuer, address subject, bytes32 key) public {
-        require(msg.sender == issuer);
-        delete registry[issuer][subject][key];
-        emit ClaimRemoved(msg.sender, subject, key, now);
-    }
+    event ClaimAdded();
 }
