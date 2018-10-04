@@ -49,8 +49,8 @@ Based on the 100 Point ID check Australia.
 | Key | Class | Document Type | Point Value | Key as Bytes32 |
 | --- | --- | --- | --- | --- |
 | BIRTHCERTIFICATE | Primary | Birth Certificate | 70 | 0x42495254484345525449464943415445 |
-| DRIVERSLICENCE | Secondary | Driver’s Licence | 40 | 0x445249564552534c4943454e4345 |
 | PASSPORT | Primary | Passport | 70 | 0x50415353504f52540a |
+| DRIVERSLICENCE | Secondary | Driver’s Licence | 40 | 0x445249564552534c4943454e4345 |
 | RESIDENTALCOUNTRY | NA | Country of Residence | 0 | 0x5245534944454e54414c434f554e545259 |
 
 Classes represented in the smart contract as an enum
