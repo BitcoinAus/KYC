@@ -39,9 +39,9 @@ To verify a users 100 points of ID, they are asked to sign a message from the pr
 ```
 
 ## Contracts
-There are two smart contracts.  
-1. The repository ERC70 contract which stores data in Key Value pairs.  The contract to holds clients KYC attestations will adhere to ERC780.  We are using the ConsenSys uPort contract `0xc9ed21ffcc88a5072454c43bdfdbbe3430888b19` deployed on Rinkeby.
-2. The KYC proxy that implements business logic functions, such as "points value"
+There is one smart contract.
+
+1. The KYC proxy that implements business logic functions, such as "points value"
 
 ## Claim types
 Based on the 100 Point ID check Australia.  
@@ -50,7 +50,8 @@ Based on the 100 Point ID check Australia.
 | --- | --- | --- | --- | --- |
 | BIRTHCERTIFICATE | Primary | Birth Certificate | 70 | 0x42495254484345525449464943415445 |
 | DRIVERSLICENCE | Secondary | Driver’s Licence | 40 | 0x445249564552534c4943454e4345 |
-| RESIDENTALCOUNTRY | NA | Country of Residence | 0 | 0x00 |
+| PASSPORT | Primary | Passport | 70 | 0x50415353504f52540a |
+| RESIDENTALCOUNTRY | NA | Country of Residence | 0 | 0x5245534944454e54414c434f554e545259 |
 
 Classes represented in the smart contract as an enum
 ```
